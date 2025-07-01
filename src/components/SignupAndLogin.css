@@ -19,6 +19,7 @@
     background-color: #FFFFFF;
     box-shadow: 0px 17px 46px 0px #5C636B14;
     border-radius:24px;
+    padding: 25px 40px;
    
 }
 .register-login{
@@ -36,9 +37,14 @@
 }
 .register{
     color:#1A0710D9;
+    cursor: pointer;
+}
+.register.active{
+    border-bottom: red;
 }
 .login{
     color:#1A0710A6;
+    cursor: pointer;
 }
 .close-icon i{
     font-size: 24px;

@@ -13,8 +13,9 @@ const SignupAndLogin = () =>{
         setShowLoginPage(false);
     }
     const toggleLogin = ()=>{
+       setShowLoginPage(true);
         setShowSignupPage(false);
-        setShowLoginPage(true);
+        
     }
 
     return(
@@ -22,17 +23,17 @@ const SignupAndLogin = () =>{
             <div className="signup-and-login-wrapper">
             <div className="register-login">
                 <div className="register-login-links">
-                    <p className="register" conClick={toggleSignUp}>Register</p>
+                    <p className="register" onClick={toggleSignUp}>Register</p>
                     <p className="login" onClick={toggleLogin}>Login</p>
                 </div>
                 <div className="close-icon">
                        <i class="bi bi-x"></i>
 
                 </div> </div>
-                {showSignupPage && 
-                <Signup/>}
-                {showLoginPage &&
-                <Login/>}
+                {showSignupPage &&<Signup/>} 
+               
+                {showLoginPage && <Login/>}
+                
            
 
         </div>
