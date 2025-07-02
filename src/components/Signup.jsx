@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { SignUpSchema } from '../utils/validations.js';
 import './Signup.css';
+import PersonalInformation from "./PersonalInformation.jsx";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const nav= useNavigate();
 
   return (
     <div className="signup-wrapper">
@@ -53,7 +59,9 @@ const Signup = () => {
 
             <p className="characters">8+ characters</p>
 
-            <button className="submit" type="submit">Create account</button>
+            <button className="submit" type="submit" onClick={()=>{
+              nav('/personalInformation')
+            }}>Create account</button>
 
             <div className="send-me">
               <input type="checkbox" id="subscribe" />

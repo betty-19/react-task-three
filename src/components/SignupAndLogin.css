@@ -22,7 +22,7 @@
     padding: 25px 40px;
    
 }
-.register-login{
+.register-login,.personal-information-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,4 +49,10 @@
 .close-icon i{
     font-size: 24px;
     color:#1A0710D9;
+    
+}
+@media (max-width:527px){
+    .signup-and-login-wrapper{
+        margin:20px;
+    }
 }
