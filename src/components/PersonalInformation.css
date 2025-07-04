@@ -194,41 +194,56 @@ font-size: 16px;
 color:#1A0710A6;
 
 }
-.birthday{
-width: 100%;
-height: 56px;
-border-radius: 12px;
-border: 1px solid #DDDDDD;
-padding-inline: 12px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-margin-bottom: 10px;
+.birthday {
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  border: 1px solid #DDDDDD;
+  padding-inline: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
 }
-.birthday-icon{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap:10px;
-}
-.birthday-input{
-    border:none;
-    outline:none;
-font-weight: 400;
-font-size: 16px;
-color:#1A0710A6;
 
+.birthday-input {
+  border: none;
+  outline: none;
+  font-weight: 400;
+  font-size: 16px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 2;
 }
-.birthday-icon p{
-font-weight: 400;
-font-size: 16px;
-color:#1A071066;
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
-.birthday-icon i{
-    font-size: 24px;
-    color:#1A0710D9;
+
+.custom-placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  color: #888;
+  pointer-events: auto;
+  cursor: pointer;
 }
+
+.birthday-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.birthday-icon p {
+  font-weight: 400;
+  font-size: 16px;
+  color: #1A071066;
+}
+
 .description{
 font-weight: 400;
 font-size: 13px;
