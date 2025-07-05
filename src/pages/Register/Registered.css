@@ -42,6 +42,7 @@ left: 50px;
 }
 .registered{
     padding:25px 40px;
+    /* background-color: red; */
 }
 .registered-content h1{
 font-style: Bold;
@@ -64,4 +65,39 @@ color:#1A0710D9;
   outline: none;
   cursor: pointer;
   margin-top:50px
+}
+@media (max-width: 600px) {
+  .registered-content {
+    max-width: 90%;
+    margin: 0 16px;
+    border-radius: 16px;
+  }
+
+  .img {
+    height: 220px;
+  }
+
+  .img img {
+    width: 280px;
+    height: 280px;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .registered {
+    padding: 20px 16px;
+  }
+
+  .registered-content h1 {
+    font-size: 26px;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .go-to-login {
+    font-size: 15px;
+    height: 48px;
+    margin-top: 30px;
+  }
 }

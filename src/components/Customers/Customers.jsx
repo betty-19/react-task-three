@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Customers.css'
-import Active1 from '../assets/images/active1.png'
-import Active2 from '../assets/images/active2.png'
-import Active3 from '../assets/images/active3.png'
-import Active4 from '../assets/images/active4.png'
-import Active5 from '../assets/images/active5.png'
+import Active1 from '../../assets/images/active1.png'
+import Active2 from '../../assets/images/active2.png'
+import Active3 from '../../assets/images/active3.png'
+import Active4 from '../../assets/images/active4.png'
+import Active5 from '../../assets/images/active5.png'
 
 const Customers =()=>{
     const [activePage,setActivePage] = useState(1);

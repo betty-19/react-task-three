@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.signup-wrapper {
+.Login-wrapper {
   width: 100%;
   max-width: 500px;
   margin: auto;
@@ -38,7 +38,7 @@
   font-size: 24px;
 }
 
-.signup-option {
+.Login-option {
   font-weight: 400;
   font-size: 13px;
   color: #1A071066;
@@ -195,3 +195,77 @@
   font-size: 12px;
   margin-top: 5px;
 }
+@media (max-width: 768px) {
+  .Login-wrapper {
+    padding: 16px;
+  }
+
+  .accounts {
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .google,
+  .facebook,
+  .apple {
+    width: 42px;
+    height: 42px;
+  }
+
+  .google i,
+  .facebook i,
+  .apple i {
+    font-size: 20px;
+  }
+
+  .submit {
+    margin-top: 30px;
+    font-size: 15px;
+  }
+
+  .label,
+  .characters,
+  .send-me p {
+    font-size: 12px;
+  }
+
+  .custom-input {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Login-wrapper {
+    padding-inline: 12px;
+  }
+
+  .input {
+    height: 48px;
+    padding-inline: 10px;
+  }
+
+  .input-icons {
+    font-size: 20px;
+  }
+
+  .submit {
+    height: 48px;
+    font-size: 14px;
+    padding-inline: 24px;
+  }
+
+  .send-me {
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .terms-conditions {
+    font-size: 11px;
+    padding-inline: 20px;
+  }
+
+  .terms-conditions a {
+    font-size: 10px;
+  }
+}
+

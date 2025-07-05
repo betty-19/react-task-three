@@ -1,13 +1,13 @@
 
 import {Routes,Route} from 'react-router-dom'
-import Login from "./components/Login"
-import Signup from "./components/Signup"
-import SignupAndLogin from "./components/SignupAndLogin"
-import PersonalInformation from './components/PersonalInformation'
-import Address from './components/Address/Address.jsx'
-import Registered from './components/Registered'
-import Dashboard from './components/Dashboard'
-import Login from './components/Login'
+import Login from "./pages/Login/Login.jsx"
+import Signup from "./pages/Signup/Signup.jsx"
+import SignupAndLogin from "./pages/SignupAndLogin/SignupAndLogin.jsx"
+import PersonalInformation from './pages/PersonalInformation/PersonalInformation.jsx'
+import Address from './pages/Address/Address.jsx'
+import Registered from './pages/Register/Registered.jsx'
+import Dashboard from './pages/Dashboard/Dashboard.jsx'
+
 
 function App() {
  

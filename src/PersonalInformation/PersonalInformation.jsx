@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import { Formik, Form, Field } from 'formik';
-import './PersonalInformation.css';
-import './Address/Address.jsx'
-import { Navigate, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import "./PersonalInformation.css";
+import { useNavigate } from "react-router-dom";
+import { PersonalInfoSchema  } from "../../utils/validations.js"; // use this if you kept the name
 
 function PersonalInformation() {
   const dateInputRef = useRef(null);
@@ -23,13 +23,14 @@ function PersonalInformation() {
 
         <Formik
           initialValues={{
-            fullname: '',
-            gender: '',
-            phone: '',
-            birthday: '',
+            fullname: "",
+            gender: "",
+            phone: "",
+            birthday: "",
           }}
+          validationSchema={PersonalInfoSchema }
           onSubmit={(values) => {
-            nav('/address')
+            nav("/address");
           }}
         >
           {({ setFieldValue, values }) => (
@@ -41,6 +42,7 @@ function PersonalInformation() {
                   placeholder="Full name"
                   className="fullname-input"
                 />
+                <ErrorMessage name="fullname" component="div" className="error" />
               </div>
 
               {/* Gender */}
@@ -54,6 +56,7 @@ function PersonalInformation() {
                   <Field type="radio" name="gender" value="female" className="radio" />
                   <label>Female</label>
                 </div>
+                <ErrorMessage name="gender" component="div" className="error" />
               </div>
 
               {/* Info Text */}
@@ -74,6 +77,7 @@ function PersonalInformation() {
                     placeholder="Phone number"
                     className="phone-number-input"
                   />
+                  <ErrorMessage name="phone" component="div" className="error" />
                 </div>
               </div>
 
@@ -90,7 +94,7 @@ function PersonalInformation() {
                     color: values.birthday ? "#1A0710A6" : "transparent",
                     position: "relative",
                     zIndex: 2,
-                    background: "transparent"
+                    background: "transparent",
                   }}
                 />
                 {!values.birthday && (
@@ -102,7 +106,7 @@ function PersonalInformation() {
                       left: 12,
                       zIndex: 1,
                       fontSize: "16px",
-                      color: "#888"
+                      color: "#888",
                     }}
                   >
                     Birthday
@@ -116,6 +120,7 @@ function PersonalInformation() {
                   <p>Optional</p>
                   <i className="bi bi-calendar4"></i>
                 </div>
+                <ErrorMessage name="birthday" component="div" className="error" />
               </div>
 
               <p className="description">
@@ -123,9 +128,7 @@ function PersonalInformation() {
               </p>
 
               {/* Submit Button */}
-              <button className="save-information" type="submit" onClick={()=>{
-                nav('/address');
-              }}>
+              <button className="save-information" type="submit">
                 Save Information
               </button>
             </Form>

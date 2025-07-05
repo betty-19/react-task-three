@@ -30,7 +30,7 @@ color:#000000;
   margin-top: 10px;
 }
 .customer-input i{
-    font-size: 24px;
+    font-size: 16px;
     color:#7E7E7E;
 }
 .customer-search-field{
@@ -328,3 +328,142 @@ color:#fff;
 .next:hover {
   background-color: #EDEDED;
 } */
+ 
+@media (max-width: 768px) {
+  .user-search {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .user-search p {
+    font-size: 20px;
+    text-align: left;
+  }
+
+  .customer-input {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .customer-search-field {
+    font-size: 14px;
+  }
+}
+@media (max-width: 990px) {
+  .earning {
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    padding: 20px;
+    gap: 30px;
+  }
+
+  .total-customers,
+  .members,
+  .active-now {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: none;
+    padding-right: 0;
+  }
+
+  .total-customers,
+  .members {
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+  }
+
+  .total-customers-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .total-customers-icon i {
+    font-size: 30px;
+  }
+
+  .earning-right-number {
+    font-size: 24px;
+  }
+
+  .earning-right-images {
+    margin-top: 10px;
+  }
+
+  .earning-right-images img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .img-two { left: 16px; }
+  .img-three { left: 32px; }
+  .img-four { left: 48px; }
+  .img-five { left: 64px; }
+}
+@media (max-width: 990px) {
+  .product {
+    padding: 15px;
+    border-radius: 20px;
+    margin-top: 30px;
+  }
+
+  .product-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .product-header-left p:nth-of-type(1) {
+    font-size: 18px;
+  }
+
+  .product-header-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .product-search,
+  .sort {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .table thead,
+  .table tbody,
+  .table tr,
+  .table th,
+  .table td {
+    white-space: nowrap;
+  }
+
+  .paging {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pages {
+    gap: 8px;
+  }
+
+  .previous,
+  .page,
+  .next {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
+

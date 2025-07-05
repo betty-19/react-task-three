@@ -51,8 +51,43 @@
     color:#1A0710D9;
     
 }
-@media (max-width:527px){
-    .signup-and-login-wrapper{
-        margin:20px;
-    }
+@media (max-width: 768px) {
+  .signup-and-login-wrapper {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .register-login-links {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .close-icon i {
+    font-size: 20px;
+  }
 }
+
+@media (max-width: 480px) {
+  .signup-and-login-wrapper {
+    padding: 16px;
+    margin: 16px;
+  }
+
+  .register-login-links {
+    font-size: 13px;
+  }
+
+  .register,
+  .login {
+    font-size: 13px;
+  }
+
+  .close-icon i {
+    font-size: 18px;
+  }
+
+  .wrapper {
+    padding: 10px;
+  }
+}
+

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { SignUpSchema } from '../utils/validations.js';
+import { SignUpSchema } from '../../utils/validations.js';
 import './Login.css';
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase.js";
 
 import { useNavigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ const Login = () => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
     console.log("Logged in:", userCredential.user);
-    nav('/dashboard'); // ✅ Navigate after success
+    nav('/dashboard'); 
   } catch (error) {
     console.error("Login error:", error.code, error.message);
 

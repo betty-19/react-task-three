@@ -1,6 +1,6 @@
 import React from "react";
 import './Registered.css'
-import registered from '../assets/images/registered.png'
+import registered from '../../assets/images/registered.png'
 import { useNavigate } from "react-router-dom";
 
 function Registered(){
@@ -16,7 +16,7 @@ function Registered(){
                 <div className="registered">
                     <h1>You are successfully registered!</h1>
                     <button className="go-to-login" type="submit" onClick={()=>{
-                nav('/login');
+                nav('/');
               }}>
                 Go to Login
               </button>
