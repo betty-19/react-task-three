@@ -4,6 +4,8 @@ import { SignUpSchema } from '../utils/validations.js';
 import './Signup.css';
 import PersonalInformation from "./PersonalInformation.jsx";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 
 
@@ -23,9 +25,28 @@ const Signup = () => {
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={SignUpSchema}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
+        onSubmit={async (values, { setSubmitting, setErrors }) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+    const user = userCredential.user;
+    console.log("User created:", user);
+    nav('/personalInformation'); // Navigate on success
+  } catch (error) {
+    console.error("Signup error:", error.message);
+
+    // Optionally display error to user
+    if (error.code === 'auth/email-already-in-use') {
+      setErrors({ email: "Email already in use" });
+    } else if (error.code === 'auth/weak-password') {
+      setErrors({ password: "Password should be at least 8 characters" });
+    } else {
+      alert("Something went wrong: " + error.message);
+    }
+  } finally {
+    setSubmitting(false);
+  }
+}}
+
       >
         {() => (
           <Form>
@@ -59,9 +80,7 @@ const Signup = () => {
 
             <p className="characters">8+ characters</p>
 
-            <button className="submit" type="submit" onClick={()=>{
-              nav('/personalInformation')
-            }}>Create account</button>
+            <button className="submit" type="submit" >Create account</button>
 
             <div className="send-me">
               <input type="checkbox" id="subscribe" />

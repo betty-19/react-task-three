@@ -16,7 +16,7 @@ function Registered(){
                 <div className="registered">
                     <h1>You are successfully registered!</h1>
                     <button className="go-to-login" type="submit" onClick={()=>{
-                nav('/');
+                nav('/login');
               }}>
                 Go to Login
               </button>

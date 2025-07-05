@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field } from 'formik';
 import './PersonalInformation.css';
-import './Address.jsx'
+import './Address/Address.jsx'
 import { Navigate, useNavigate } from "react-router-dom";
 
 function PersonalInformation() {
