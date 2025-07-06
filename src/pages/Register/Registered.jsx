@@ -15,11 +15,10 @@ function Registered(){
                 
                 <div className="registered">
                     <h1>You are successfully registered!</h1>
-                    <button className="go-to-login" type="submit" onClick={()=>{
-                nav('/');
-              }}>
-                Go to Login
-              </button>
+                    <button className="go-to-login" type="submit" onClick={() => nav('/', { state: { showLogin: true } })}>
+  Go to Login
+</button>
+
                 </div>
                 
             </div>

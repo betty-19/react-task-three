@@ -39,9 +39,10 @@
     color:#1A0710D9;
     cursor: pointer;
 }
-.register.active{
-    border-bottom: red;
-}
+.register.active,
+.login.active {
+  border-bottom: 2px solid red; 
+  padding-bottom: 4px; }
 .login{
     color:#1A0710A6;
     cursor: pointer;
