@@ -1,68 +1,80 @@
-"use client"
-
-import { useState, useEffect } from "react"
-import "./Dashboard.css"
-import Customers from "../../components/Customers/Customers.jsx"
-import Profile from "../../assets/images/profile.png"
+import { useState, useEffect } from "react";
+import "./Dashboard.css";
+import Customers from "../../components/Customers/Customers.jsx";
+import Profile from "../../assets/images/profile.png";
 
 const Dashboard = () => {
-  const [showCustomers, setShowCustomers] = useState(false)
-  const [activeMenu, setActiveMenu] = useState("dashboard")
-  const [isMobile, setIsMobile] = useState(false)
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [compactSidebar, setCompactSidebar] = useState(false)
-
+  const [showCustomers, setShowCustomers] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("dashboard");
+  const [isMobile, setIsMobile] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [compactSidebar, setCompactSidebar] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768)
+      setIsMobile(window.innerWidth <= 768);
       if (window.innerWidth > 768) {
-        setSidebarOpen(true)
+        setSidebarOpen(true);
       }
-    }
+    };
 
-    handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleMenuClick = (menu) => {
-    setActiveMenu(menu)
-    setShowCustomers(menu === "customers")
-    if (isMobile) setSidebarOpen(false)
-  }
+    setActiveMenu(menu);
+    setShowCustomers(menu === "customers");
+    if (isMobile) setSidebarOpen(false);
+  };
 
   return (
     <div className="dashboard-container">
 
       {isMobile && (
-        <div className="gear-toggle" onClick={() => setSidebarOpen(!sidebarOpen)}>
-          <i className="bi bi-gear"></i>
-        </div>
-      )}
+  <div className={`gear-toggle mobile-title ${compactSidebar ? "compact" : ""}`}>
+  <i
+  className="bi bi-gear"
+  onClick={() => {
+    setCompactSidebar((prev) => {
+      const newState = !prev;
+      if (!newState) {
+        setSidebarOpen(true);
+      }
+      return newState;
+    });
+  }}
+></i>
 
-     
-      <div className={`dashboard-wrapper ${compactSidebar ? "compact" : ""} ${isMobile ? "mobile-sidebar" : ""} ${sidebarOpen ? "open" : ""}`}
->
+    {!compactSidebar && (
+      <p>
+        Dashboard <span>v.01</span>
+      </p>
+    )}
+  </div>
+)}
+
+      <div
+        className={`dashboard-wrapper ${compactSidebar ? "compact" : ""} ${
+          isMobile ? "mobile-sidebar" : ""
+        } ${sidebarOpen ? "open" : ""}`}
+      >
         <div className="sidebar">
           <div className="sidebar-top">
             <div className="dashboard-title">
-  {!isMobile && (
-    <i
-      className="bi bi-gear"
-      onClick={() => setCompactSidebar((prev) => !prev)}
-    ></i>
-  )}
-  {!isMobile && !compactSidebar && (
-    <p>
-      Dashboard <span>v.01</span>
-    </p>
-  )}
-  {isMobile && (
-    <i className="bi bi-x" onClick={() => setSidebarOpen(false)}></i>
-  )}
-</div>
-
+              {!isMobile && (
+                <i
+                  className="bi bi-gear"
+                  onClick={() => setCompactSidebar((prev) => !prev)}
+                ></i>
+              )}
+              {!isMobile && !compactSidebar && (
+                <p>
+                  Dashboard <span>v.01</span>
+                </p>
+              )}
+            </div>
 
             <div className="lists">
               {["dashboard", "product", "customers", "income", "promote", "help"].map((menu) => (
@@ -72,24 +84,33 @@ const Dashboard = () => {
                   onClick={() => handleMenuClick(menu)}
                 >
                   <div className="icon-title">
-                    <i className={`bi ${
-                      menu === "dashboard" ? "bi-house" :
-                      menu === "product" ? "bi-box" :
-                      menu === "customers" ? "bi-people" :
-                      menu === "income" ? "bi-currency-dollar" :
-                      menu === "promote" ? "bi-megaphone" :
-                      "bi-question-circle"
-                    }`}></i>
-                    {!isMobile && !compactSidebar &&<p>{menu.charAt(0).toUpperCase() + menu.slice(1)}</p>}
+                    <i
+                      className={`bi ${
+                        menu === "dashboard"
+                          ? "bi-house"
+                          : menu === "product"
+                          ? "bi-box"
+                          : menu === "customers"
+                          ? "bi-people"
+                          : menu === "income"
+                          ? "bi-currency-dollar"
+                          : menu === "promote"
+                          ? "bi-megaphone"
+                          : "bi-question-circle"
+                      }`}
+                    ></i>
+                    {!compactSidebar && (
+                      <p>{menu.charAt(0).toUpperCase() + menu.slice(1)}</p>
+                    )}
                   </div>
-                  {!isMobile && !compactSidebar &&<i className="bi bi-chevron-right"></i>}
+                  {!compactSidebar && <i className="bi bi-chevron-right"></i>}
                 </div>
               ))}
             </div>
           </div>
 
           <div className="sidebar-bottom">
-            {!isMobile && !compactSidebar && (
+            {!compactSidebar && (
               <div className="access-pro">
                 <p>Upgrade to PRO to get access all Features!</p>
                 <button>Get Pro Now!</button>
@@ -99,14 +120,14 @@ const Dashboard = () => {
             <div className="login-user">
               <div className="user">
                 <img src={Profile} alt="Profile" />
-                {!isMobile && !compactSidebar &&(
+                {!compactSidebar && (
                   <div className="user-info">
                     <p className="name">Evano</p>
                     <p className="position">Project Manager</p>
                   </div>
                 )}
               </div>
-              {!isMobile && !compactSidebar &&<i className="bi bi-chevron-down"></i>}
+              {!compactSidebar && <i className="bi bi-chevron-down"></i>}
             </div>
           </div>
         </div>
@@ -124,7 +145,7 @@ const Dashboard = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

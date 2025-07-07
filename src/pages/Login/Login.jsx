@@ -13,20 +13,9 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const nav= useNavigate();
-
-  return (
-    <div className="Login-wrapper">
-      <div className="accounts">
-        <div className="apple"><i className="bi bi-apple"></i></div>
-        <div className="facebook"><i className="bi bi-facebook"></i></div>
-        <div className="google"><i className="bi bi-google"></i></div>
-      </div>
-
-      <Formik
-        initialValues={{ email: '', password: '' }}
-        validationSchema={SignUpSchema}
-        onSubmit={async (values, { setSubmitting, setErrors }) => {
-  try {
+  
+  const submit = async (values, { setSubmitting, setErrors }) =>{
+    try {
     const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
     console.log("Logged in:", userCredential.user);
     nav('/dashboard'); 
@@ -43,7 +32,20 @@ const Login = () => {
   } finally {
     setSubmitting(false);
   }
-}}
+  };
+
+  return (
+    <div className="Login-wrapper">
+      <div className="accounts">
+        <div className="apple"><i className="bi bi-apple"></i></div>
+        <div className="facebook"><i className="bi bi-facebook"></i></div>
+        <div className="google"><i className="bi bi-google"></i></div>
+      </div>
+
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={SignUpSchema}
+        onSubmit={submit}
       >
         {() => (
           <Form>

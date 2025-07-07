@@ -10,6 +10,27 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const nav = useNavigate();
 
+  const submit = async (values, { setSubmitting, setErrors }) => {
+  try {
+    const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
+    const user = userCredential.user;
+    console.log("User created:", user);
+    nav('/personalInformation');
+  } catch (error) {
+    console.error("Signup error:", error.message);
+    if (error.code === 'auth/email-already-in-use') {
+      setErrors({ email: "Email already in use" });
+    } else if (error.code === 'auth/weak-password') {
+      setErrors({ password: "Password should be at least 8 characters" });
+    } else {
+      alert("Something went wrong: " + error.message);
+    }
+  } finally {
+    setSubmitting(false);
+  }
+};
+
+
   return (
     <div className="signup-wrapper">
       <div className="accounts">
@@ -21,25 +42,9 @@ const Signup = () => {
       <Formik
         initialValues={{ email: '', password: '' }}
         validationSchema={SignUpSchema}
-        onSubmit={async (values, { setSubmitting, setErrors }) => {
-          try {
-            const userCredential = await createUserWithEmailAndPassword(auth, values.email, values.password);
-            const user = userCredential.user;
-            console.log("User created:", user);
-            nav('/personalInformation');
-          } catch (error) {
-            console.error("Signup error:", error.message);
-            if (error.code === 'auth/email-already-in-use') {
-              setErrors({ email: "Email already in use" });
-            } else if (error.code === 'auth/weak-password') {
-              setErrors({ password: "Password should be at least 8 characters" });
-            } else {
-              alert("Something went wrong: " + error.message);
-            }
-          } finally {
-            setSubmitting(false);
-          }
-        }}
+         onSubmit={
+          submit
+        }
       >
         {({ errors, touched, values }) => (
           <Form>

@@ -19,7 +19,7 @@ width: 100%;
   /* background-color: black; */
   
 }
-.dashboard-wrapper.compact {
+.dashboard-wrapper.compact{
   width: 80px;
 }
 
@@ -48,17 +48,17 @@ width: 100%;
   background-color: #f5f6fa;
   overflow-y: auto;
 }
-.dashboard-title {
+.dashboard-title ,.mobile-title{
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 40px;
 }
-.dashboard-wrapper.compact .dashboard-title {
+.dashboard-wrapper.compact .dashboard-title,.mobile-title {
   justify-content: center;
   margin-bottom: 30px;
 }
-.dashboard-title i {
+.dashboard-title i,.mobile-title i{
   font-size: 37px;
   color: #000000;
   cursor: pointer;
@@ -68,14 +68,14 @@ width: 100%;
   transform: scale(1.1);
 }
 
-.dashboard-title p {
+.dashboard-title p,.mobile-title p {
   font-weight: 600;
   font-size: 26px;
   color: #000000;
   margin: 0;
 }
 
-.dashboard-title p span {
+.dashboard-title p span,.mobile-title p span {
   font-weight: 400;
   font-size: 10px;
   color: #838383;
@@ -259,24 +259,25 @@ width: 100%;
 
 .gear-toggle {
   display: none;
+
 }
 
 @media (max-width: 768px) {
   .gear-toggle {
     display: flex;
-    /* position: fixed; */
+  
     top: 0;
-    left: 20px;
-    /* width: 45px;
-    height: 45px;
-    background: white; 
-    border-radius: 50%;*/
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
+    width: 100%;
     justify-content: left;
-padding-left: 10px;
+
+ margin-bottom:50px;
+  padding: 3px 15px; 
     align-items: center;
     z-index: 1000;
     cursor: pointer;
+
+   
   }
 
   .gear-toggle i {
@@ -288,6 +289,7 @@ padding-left: 10px;
   margin-bottom: 30px;
 }
 
+
 .dashboard-wrapper.compact .dashboard-title i {
   margin: 0 auto;
 }
@@ -295,7 +297,7 @@ padding-left: 10px;
   /* Mobile sidebar overlay */
   .dashboard-wrapper.mobile-sidebar {
     position: fixed;
-    top: 33px;
+    top: 0px;
     left: -100%;
     height: 100vh;
     width: 250px;
@@ -304,7 +306,9 @@ padding-left: 10px;
     transition: left 0.3s ease-in-out;
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   }
-
+.dashboard-wrapper.mobile-sidebar.compact {
+  width: 80px;
+}
   .dashboard-wrapper.mobile-sidebar.open {
     left: 0;
   }
@@ -321,7 +325,7 @@ padding-left: 10px;
     margin-left: auto;
   }
 
-  .dashboard-title p {
+  .dashboard-title p , .mobile-title p{
     font-size: 20px;
   }
 
